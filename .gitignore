@@ -1,0 +1,18 @@
+# Environments
+.venv/
+venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+
+# Raw and derived data stay out of git. The download script is enough.
+data/*
+!data/README.md
+*.csv.gz
+*.parquet
+
+# Large model outputs. Tables and figures in results/ are committed.
+results/*.parquet
+results/*.pkl
+*.egg-info/
