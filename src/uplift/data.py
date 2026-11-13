@@ -86,3 +86,32 @@ def split_by_row_id(
         test_df.to_parquet(out_path / "test.parquet", index=True)
 
     return train_df, test_df
+
+
+HOLDOUT_SIZE = 2_000_000
+TRAIN_SIZES = [100_000, 500_000, 1_000_000, 5_000_000]
+
+
+def make_splits(n_rows: int, holdout: int = HOLDOUT_SIZE, seed: int = SEED):
+    """Fixed split by row position: a held out test set and a shuffled training pool.
+
+    The test rows are never used for fitting, tuning or feature selection.
+    Every training sample is a prefix of the shuffled pool, so the 100k, 500k,
+    1M and 5M samples are nested and always avoid the test rows. The same seed
+    always gives the same split, so nothing needs to be saved or shared.
+    """
+    rng = np.random.default_rng(seed)
+    order = rng.permutation(n_rows)
+    return order[:holdout], order[holdout:]
+
+
+def take(df: pd.DataFrame, ids: np.ndarray) -> pd.DataFrame:
+    """Rows of df at the given positions. The original row number is kept as row_id."""
+    out = df.iloc[ids].copy()
+    out.index.name = "row_id"
+    return out
+
+
+def treated_share_ok(df: pd.DataFrame, expected: float = 0.85, tol: float = 0.01) -> bool:
+    """The file is ordered, so always check a sample is not all treated."""
+    return abs(df[TREATMENT].mean() - expected) <= tol
