@@ -14,16 +14,16 @@ Read `docs/PLAN.md` first. Every task below has the same parts:
 |---|---|---|---|---|---|
 | R1 | Open the pull requests and prepare the data command | Sat 14 | 1 h | `analysis-pipeline` and others | the team |
 | R2 | Review teammates' pull requests | all week | 4 h | PR comments | none |
-| R3 | Merge the code and pass Gate G2 | Sun 15 | 1 h | none | none |
-| R4 | Hand worked tests for the evaluation code | Sun 15 | 3 h | `neeraj/test_metrics_toy` | Sai |
+| R3 | Merge the code and pass Gate G2 | Tue 17 | 1 h | none | none |
+| R4 | Hand worked tests for the evaluation code | Sun 15 to Mon 16 | 3 h | `neeraj/test_metrics_toy` | Sai |
 | R5 | Audit and verify the results | Mon 16 | 3 h | `neeraj/audit` | Niranjan |
-| R6 | Sleeping dogs check | Mon 16 | 3 h | `neeraj/sleeping_dogs` | Ganesh |
-| R7 | Relative uplift analysis | Tue 17 | 3 h | `neeraj/relative_uplift` | Sai |
+| R6 | Sleeping dogs check | Wed 18 | 3 h | `neeraj/sleeping_dogs` | Ganesh |
+| R7 | Relative uplift analysis | Thu 19 | 3 h | `neeraj/relative_uplift` | Sai |
 | R8 | Run the Gate G3 call and decide H1 | Tue 17 | 2 h | decision log | the team |
-| R9 | Methods section | Mon 16 draft, Thu 19 final | 3 h | `neeraj/methods` | Ganesh |
-| R10 | Analysis and discussion section | Wed 18 | 3 h | `neeraj/analysis_section` | Niranjan |
+| R9 | Methods section | Draft Fri 20, final Sat 21 | 3 h | `neeraj/methods` | Ganesh |
+| R10 | Analysis and discussion section | Sat 21 to Sun 22 | 3 h | `neeraj/analysis_section` | Niranjan |
 | R11 | Freeze and tag `v1.0` | Fri 20 | 1 h | tag | none |
-| R12 | Abstract | Sat 21 | 1 h | `neeraj/abstract` | Sai |
+| R12 | Abstract | Sun 22 | 1 h | `neeraj/abstract` | Sai |
 | R13 | Contribution and Roles table | Tue 24 and Wed 25 | 1 h | in the report | the team |
 | R14 | Submission | Thu 26 | 2 h | none | the team |
 | R15 | Keep the plan alive | daily | 15 min | none | none |
@@ -64,7 +64,7 @@ Read `docs/PLAN.md` first. Every task below has the same parts:
 
 ## R3. Merge the code and pass Gate G2
 
-**Task.** Merge the code pull requests and close Gate G2 on Sun 15.
+**Task.** Merge the code pull requests and close Gate G2 on the morning of Tue 17, before the G3 call.
 
 **Gate G2 is passed when all of this is true:**
 - [ ] The pipeline PR and the docs PR are merged
@@ -213,7 +213,7 @@ Work out `Q(i) = i * (rate_treated - rate_control)` for the top i users, for i =
 
 **Task.** Write the Methods section in at most 220 words.
 
-**File.** `report/sections/methods.md`. Draft on Mon 16, final on Thu 19.
+**File.** `report/sections/methods.md`. Draft on Fri 20, final on Sat 21.
 
 **Structure.** Eight sentences or short groups, in this order. Every number has an HTML comment naming its source file.
 1. **Data split.** A fixed 2,000,000 user holdout, nested training samples from 100,000 to 5,000,000, none of it used for fitting, tuning or feature selection.
@@ -239,7 +239,7 @@ Work out `Q(i) = i * (rate_treated - rate_control)` for the top i users, for i =
 
 ## R10. Analysis and discussion section
 
-**Task.** Explain why the results look the way they do, in at most 130 words. This is the hardest section. Draft it on Wed 18 with the numbers frozen at G3.
+**Task.** Explain why the results look the way they do, in at most 130 words. This is the hardest section. Draft it on Sat 21 and Sun 22, after the extra analyses are merged and the numbers are frozen on Fri 20.
 
 **File.** `report/sections/analysis.md`.
 
@@ -294,7 +294,7 @@ Work out `Q(i) = i * (rate_treated - rate_control)` for the top i users, for i =
 
 ## R12. Abstract
 
-**Task.** Write the Abstract in at most 70 words, on Sat 21, after the freeze.
+**Task.** Write the Abstract in at most 70 words, on Sun 22, after the freeze.
 
 **File.** `report/sections/abstract.md`.
 
@@ -341,12 +341,12 @@ Work out `Q(i) = i * (rate_treated - rate_control)` for the top i users, for i =
 
 ## R15. Keep the plan alive
 
-**Task.** Daily, for 15 minutes in the evening.
+**Task.** Run the five checkpoint meetings (Sun 15, Tue 17, Thu 19, Mon 23, Wed 25), one hour each, and keep the days between them light.
 
-**Steps.** Each person says what is done, what is next and what is blocked. Write blockers and decisions in `docs/decision_log.md` that evening. A blocked person is helped the same day by the reviewer of their area.
+**Steps.** At each meeting, each person says what is done, what is next and what is blocked, and says whether another deadline means a task should move. Write blockers and decisions in `docs/decision_log.md` that evening. A blocked person is helped the same day by the reviewer of their area. On other days, ask for a group chat update only when something changed.
 
 **Acceptance criteria.**
-- [ ] A call happens every day until Thu 26
+- [ ] All five checkpoint meetings happen, each with decisions written down
 - [ ] Every blocker has an owner and a time
 
 ---
@@ -355,10 +355,10 @@ Work out `Q(i) = i * (rate_treated - rate_control)` for the top i users, for i =
 
 | Review | When |
 |---|---|
-| Ganesh: tests, notebook 01, Problem and data, Results, baseline variants | Sun 15, Mon 16, Tue 17, Wed 18 |
-| Sai: pipeline tests, Ethics, segments | Sun 15, Wed 18, Tue 17 |
-| Niranjan: X learner tests, template, calibration, Conclusion | Sun 15, Mon 16, Tue 17, Wed 18 |
-| Niranjan: the final PDF | Sat 21 and Wed 25 |
+| Ganesh: tests, notebook 01, Problem and data, Results, baseline variants | Mon 16, Tue 17, Thu 19, Fri 20, Sat 21 |
+| Sai: pipeline tests, Ethics, segments | Wed 18, Fri 20, Sun 22 |
+| Niranjan: X learner tests, template, calibration, Conclusion | Tue 17, Thu 19, Fri 20, Sat 21 |
+| Niranjan: the final PDF | Mon 23 and Wed 25 |
 
 ## Oral assessment: questions you must answer well
 1. What does a Qini curve show, and how do you read it?

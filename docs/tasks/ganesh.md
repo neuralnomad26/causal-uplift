@@ -13,14 +13,14 @@ Read `docs/PLAN.md` first. Every task below has the same parts:
 | ID | Task | Due | Time | Branch | Reviewer |
 |---|---|---|---|---|---|
 | G1 | Set up and first run | Sat 14 | 1 to 2 h | none | Neeraj |
-| G2 | Align notebook 01 with the final features | Sun 15 | 2 to 3 h | `ganesh/notebook01` | Niranjan |
-| G3 | Tests for the data code | Sun 15 | 2 h | `ganesh/test_data` | Neeraj |
-| G4 | Draft Problem and data | Mon 16 | 1.5 h | `ganesh/problem_and_data` | Sai |
-| G5 | Draft Results | Wed 18 | 2 h | `ganesh/results_section` | Niranjan |
-| G6 | Number check | Fri 20 | 1 h | PR comment | Sai |
+| G2 | Align notebook 01 with the final features | Mon 16 | 2 to 3 h | `ganesh/notebook01` | Niranjan |
+| G3 | Tests for the data code | Tue 17 | 2 h | `ganesh/test_data` | Neeraj |
+| G4 | Draft Problem and data | Fri 20 | 1.5 h | `ganesh/problem_and_data` | Sai |
+| G5 | Draft Results | Sat 21 | 2 h | `ganesh/results_section` | Niranjan |
+| G6 | Number check | Sat 21 | 1 h | PR comment | Sai |
 | G7 | Cold start test and README check | Sun 22 and Mon 23 | 2 h | `ganesh/cold_start` | Neeraj |
-| G8 | Baseline variants check (notebook 07) | Tue 17 | 3 h | `ganesh/baseline_variants` | Neeraj |
-| G9 | Word count script | Mon 16 | 2 h | `ganesh/count_words` | Niranjan |
+| G8 | Baseline variants check (notebook 07) | Thu 19 to Fri 20 | 3 h | `ganesh/baseline_variants` | Neeraj |
+| G9 | Word count script | Wed 18 | 2 h | `ganesh/count_words` | Niranjan |
 
 ## What you need to understand first
 
@@ -212,7 +212,7 @@ The functions you will use all live in `src/uplift/data.py`: `make_splits`, `tak
 
 ## G6. Number check
 
-**Task.** On Fri 20 Nov, prove that every number in your two sections is right.
+**Task.** On Sat 21 Nov, prove that every number in your two sections is right.
 
 **Steps.** Open both sections. For each number, find it in its source file and write one line in a PR comment: the number, the file, the row and column. Fix anything that does not match.
 
@@ -324,9 +324,9 @@ The functions you will use all live in `src/uplift/data.py`: `make_splits`, `tak
 
 | Review | What to check | When |
 |---|---|---|
-| The `data.py` split code in the pipeline PR | No holdout row reaches training. The seed makes it repeatable. | Sun 15 |
-| Neeraj's Methods section | Every sentence is true for the code. | Thu 19 |
-| Sai's Ethics and legal section | Facts match `data/README.md`. | Thu 19 |
+| The `data.py` split code in the pipeline PR | No holdout row reaches training. The seed makes it repeatable. | Mon 16 |
+| Neeraj's Methods section | Every sentence is true for the code. | Sat 21 |
+| Sai's Ethics and legal section | Facts match `data/README.md`. | Sun 22 |
 
 A review needs at least three specific comments, or an explicit statement of what you checked and found correct.
 

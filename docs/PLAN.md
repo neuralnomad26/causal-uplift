@@ -33,34 +33,44 @@ Open: the pull requests are not open yet, no report section is written, and the 
 
 | Phase | Dates | Gate | Exit criteria |
 |---|---|---|---|
-| 1 Execution | Sat 14 to Tue 17 | G2, Sun 15 | The code PRs are merged. Two people have rerun the tests and one notebook on their own laptop. |
+| 1 Execution | Sat 14 to Fri 20 | G2, Tue 17 morning | The code PRs are reviewed and merged. Two people have rerun the tests and one notebook on their own laptop. |
 | | | G3, Tue 17 | The results PR is merged. Headline numbers, all figures and the H1 verdict are agreed in a call. |
-| 2 Finalisation | Wed 18 to Thu 26 | G4, Fri 20 | Results freeze. Repo tagged `v1.0`. Every report section has a full draft. |
+| 2 Finalisation | Wed 18 to Thu 26 | G4, Fri 20 | Results freeze. Every analysis pull request is merged. Repo tagged `v1.0`. Report drafts are under way, and every section has a first draft by Sun 22. |
 | | | G5, Thu 26 | PDF submitted once, with a working code link. |
 
 After G4 nobody runs new experiments. We write, check and clean up. Anything unfinished goes into Future Work.
 
 ## 4. Day by day
 
-Task IDs refer to each person's requirements page. Every person has work every day.
+The schedule is built around five checkpoint meetings of one hour each (Sun 15, Tue 17, Thu 19, Mon 23 and Wed 25). Work is spread so that no teammate has more than 3 hours of work on any day, meetings included, and Neeraj has no more than 4. That leaves room for other submissions. Task IDs refer to each person's requirements page.
 
 | Day | Neeraj | Ganesh | Sai | Niranjan |
 |---|---|---|---|---|
-| Sat 14 | R1 open the pull requests, data command | G1 set up and first run | S1 set up and first run | N1 set up and first run |
-| Sun 15 | R3 merge, **G2**. R4 hand worked Qini tests | G2 notebook 01. G3 data tests | S2 review. S3 pipeline tests | N2 review. N3 X learner tests |
-| Mon 16 | R5 audit. R6 sleeping dogs. R9 Methods draft | G4 Problem and data. G9 word count script | S4 tuning sensitivity. S5 Literature review | N4 report template |
-| Tue 17 | R7 relative uplift. R8 **G3 call**, H1 verdict | G8 baseline variants | S7 bibliography. S8 segments | N5 calibration |
-| Wed 18 | R10 Analysis and discussion | G5 Results | S6 Ethics and legal | N6 Conclusion |
-| Thu 19 | R9 Methods final. Review Ethics and Conclusion | Review Methods and Ethics | Review Literature review check, proofread | N7 merge the drafts |
-| Fri 20 | R11 freeze, tag `v1.0`, **G4** | G6 number check | S9 number check | N7 number check |
-| Sat 21 | R12 Abstract | Read the whole report | Check references and captions | N8 assemble the PDF |
-| Sun 22 | Edit | G7 cold start test | Check references and captions | N8 layout |
-| Mon 23 | Edit | G7 fix what you found | Read the whole report | N8 finish the PDF |
-| Tue 24 | R13 send the roles table. Second full read | Second full read | Second full read | Second full read |
-| Wed 25 | R13 final. Link test in a private window | Proofread | S9 proofread the PDF | N9 final PDF checks |
+| Sat 14 | R1 open the pull requests, data command | G1 set up | S1 set up | N1 set up |
+| Sun 15 | **Meeting 14:00.** R4 hand worked tests, part 1 | **Meeting.** Read your page | **Meeting.** Read your page | **Meeting.** Read your page |
+| Mon 16 | R4 finish. R5 audit | G2 notebook 01 | S2 review | N2 review |
+| Tue 17 | R3 merge, **G2**. **Meeting 12:00, G3.** R8 decisions | **Meeting.** G3 data tests | **Meeting.** S3 pipeline tests, part 1 | **Meeting.** N3 X learner tests |
+| Wed 18 | R6 sleeping dogs | G9 word count script | S3 finish. S8 segments, part 1 | N4 template, part 1. N5 calibration, part 1 |
+| Thu 19 | **Meeting 12:00.** R7 relative uplift | **Meeting.** G8 baseline variants, part 1 | **Meeting.** S4 tuning sensitivity, part 1 | **Meeting.** N5 calibration, finish |
+| Fri 20 | R9 Methods draft. R11 freeze, tag `v1.0`, **G4** | G8 finish. G4 Problem and data | S4 finish. S8 finish | N4 template, finish |
+| Sat 21 | R9 Methods final. R10 Analysis, part 1 | G5 Results. G6 number check | S5 Literature review, part 1. S6 Ethics | N6 Conclusion. N7 merge drafts, part 1 |
+| Sun 22 | R10 Analysis, finish. R12 Abstract | G7 cold start test, part 1 | S5 finish. S7 bibliography | N7 finish. N8 assemble, part 1 |
+| Mon 23 | **Meeting 12:00.** R2 reviews | **Meeting.** G7 finish | **Meeting.** S9 number check | **Meeting.** N8 assemble, part 2 |
+| Tue 24 | R13 send the roles table. Second full read | Second full read | Second full read | N8 finish. Second full read |
+| Wed 25 | **Meeting 12:00.** R13 final, link test | **Meeting.** Proofread | **Meeting.** S9 proofread the PDF | **Meeting.** N9 final checks |
 | Thu 26 | R14 submit once, **G5** | Confirm the receipt | Confirm the receipt | Confirm the receipt |
 | Fri 27 | Spare day. Do not plan work. | | | |
 | Sat 28 and Sun 29 | Mock oral assessments, five random questions each | | | |
+
+### Checkpoint meetings
+
+| Meeting | Done before it | What the meeting decides |
+|---|---|---|
+| Sun 15, 14:00. Kickoff | Setup (G1, S1, N1) and the open pull requests (R1) | Everyone knows their tasks, the rules and their reviewer |
+| Tue 17, 12:00. Gate G3 | Both code PRs reviewed on Mon 16 and merged on Tue morning. The results audit (R5) | H1 verdict, primary outcome, headline numbers, figures, allowed claims |
+| Thu 19, 12:00. Freeze preparation | Sleeping dogs (R6), the word count script (G9), reviews of the test PRs | Status of the four extra analyses, what must merge by Fri 20, anyone who needs a task moved |
+| Mon 23, 12:00. Assembly check | All first drafts in (Sat 21 to Sun 22). Assembly started | What is missing from the PDF, and who fixes it |
+| Wed 25, 12:00. Final checks | PDF assembled. Second read done on Tue 24. Roles table sent | The final checklist, the submission steps, the mock oral plan |
 
 ## 5. Who owns what
 
@@ -79,14 +89,14 @@ Owning an area means you can explain every line of it, defend its design, and fi
 
 | Section | Words | Author | Reviewer | Draft due | Source files |
 |---|---|---|---|---|---|
-| Abstract | 70 | Neeraj | Sai | Sat 21 | all results |
-| Problem and data | 130 | Ganesh | Sai | Mon 16 | `balance_table_1m.csv`, `ate_visit_conversion.csv`, `data/README.md` |
-| Literature review | 110 | Sai | Niranjan | Mon 16 | the reading list |
-| Methods | 220 | Neeraj | Ganesh | Mon 16, final Thu 19 | `kept_features.json`, `best_params.json`, `docs/decision_log.md` |
-| Results | 130 | Ganesh | Niranjan | Wed 18 | `qini_results_*_5m.csv`, `h1_tests_5m.csv` |
-| Analysis and discussion | 130 | Neeraj | Niranjan | Wed 18 | `size_curve.csv`, `relative_uplift_response_deciles.csv`, `sleeping_dogs_5m.csv`, `calibration_slopes_5m.csv` |
-| Ethics and legal | 70 | Sai | Ganesh | Wed 18 | `data/README.md`, `sleeping_dogs_5m.csv` |
-| Conclusion and future work | 70 | Niranjan | Neeraj | Wed 18 | `h1_tests_5m.csv`, the decision log |
+| Abstract | 70 | Neeraj | Sai | Sun 22 | all results |
+| Problem and data | 130 | Ganesh | Sai | Fri 20 | `balance_table_1m.csv`, `ate_visit_conversion.csv`, `data/README.md` |
+| Literature review | 110 | Sai | Niranjan | Sat 21, final Sun 22 | the reading list |
+| Methods | 220 | Neeraj | Ganesh | Fri 20, final Sat 21 | `kept_features.json`, `best_params.json`, `docs/decision_log.md` |
+| Results | 130 | Ganesh | Niranjan | Sat 21 | `qini_results_*_5m.csv`, `h1_tests_5m.csv` |
+| Analysis and discussion | 130 | Neeraj | Niranjan | Sun 22 | `size_curve.csv`, `relative_uplift_response_deciles.csv`, `sleeping_dogs_5m.csv`, `calibration_slopes_5m.csv` |
+| Ethics and legal | 70 | Sai | Ganesh | Sat 21 | `data/README.md`, `sleeping_dogs_5m.csv` |
+| Conclusion and future work | 70 | Niranjan | Neeraj | Sat 21 | `h1_tests_5m.csv`, the decision log |
 | Total | 930 | | | | |
 
 Each draft is a plain Markdown file in `report/sections/`, named after the section. Niranjan merges them into the two column template. Every number in a draft must be copied from a file in `results/` and carry a comment naming that file.
@@ -95,13 +105,14 @@ Each draft is a plain Markdown file in `report/sections/`, named after the secti
 
 1. **Nothing goes to `main` directly.** Work on a branch named `yourname/task_name`, open a pull request, get one approval from the reviewer, then merge.
 2. **Review matrix.** The reviewer for each task is in your requirements document. Review within 12 hours of the request. A review has at least three specific comments or an explicit statement of what you checked.
-3. **Small pull requests.** One task per PR. Push every day by 9 PM, even if it is not finished, as a draft PR.
+3. **Small pull requests.** One task per PR. Push at the end of every working session, even if the task is not finished, as a draft PR.
 4. **Commit messages.** One short line in plain words that says what changed. No trailers and no signatures.
 5. **No large files.** Never commit data files or scores files. Figures and CSV tables under `results/` are fine.
 6. **Blocked?** Say so in the group chat the same day. Do not wait.
-7. **Daily call.** 15 minutes each evening. Each person says what is done, what is next and what blocks them.
+7. **Checkpoint meetings.** Five meetings of one hour: Sun 15, Tue 17, Thu 19, Mon 23 and Wed 25. They replace the daily call. At each, say what is done, what is next and what blocks you. On other days, post in the group chat only if something changed or you are blocked.
 8. **Definition of done** for any task: the code runs from a clean clone, tests pass, outputs are in `results/` with the names in your document, the PR is approved and merged, and you can explain it.
 9. **Decisions** go in `docs/decision_log.md`, one row each, with the reason.
+10. **Workload.** The schedule keeps each teammate at 3 hours or less on any day, so other submissions fit. If you have another deadline, say so at the meeting before it, and a task will move to a lighter day.
 
 ## 8. Dependencies
 

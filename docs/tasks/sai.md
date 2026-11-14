@@ -13,14 +13,14 @@ Read `docs/PLAN.md` first. Every task below has the same parts:
 | ID | Task | Due | Time | Branch | Reviewer |
 |---|---|---|---|---|---|
 | S1 | Set up and first run | Sat 14 | 1 to 2 h | none | Neeraj |
-| S2 | Review the S and T learners and the pipeline | Sun 15 | 2 h | PR comments | Ganesh |
-| S3 | Tests for the pipeline | Sun 15 | 3 h | `sai/test_pipeline` | Neeraj |
-| S4 | Tuning sensitivity check (notebook 06) | Mon 16 | 3 h | `sai/tuning_sensitivity` | Ganesh |
-| S5 | Draft Literature review | Mon 16 | 2 h | `sai/literature_review` | Niranjan |
-| S6 | Draft Ethics and legal | Wed 18 | 1.5 h | `sai/ethics_and_legal` | Ganesh |
-| S7 | Bibliography | Tue 17 | 1.5 h | `sai/references` | Niranjan |
-| S8 | Segment analysis (notebook 08) | Tue 17 | 3 h | `sai/segments` | Ganesh |
-| S9 | Number check and proofreading | Fri 20 and Wed 25 | 2 h | PR comments | Ganesh |
+| S2 | Review the S and T learners and the pipeline | Mon 16 | 2 h | PR comments | Ganesh |
+| S3 | Tests for the pipeline | Tue 17 to Wed 18 | 3 h | `sai/test_pipeline` | Neeraj |
+| S4 | Tuning sensitivity check (notebook 06) | Thu 19 to Fri 20 | 3 h | `sai/tuning_sensitivity` | Ganesh |
+| S5 | Draft Literature review | Sat 21 to Sun 22 | 2 h | `sai/literature_review` | Niranjan |
+| S6 | Draft Ethics and legal | Sat 21 | 1.5 h | `sai/ethics_and_legal` | Ganesh |
+| S7 | Bibliography | Sun 22 | 1.5 h | `sai/references` | Niranjan |
+| S8 | Segment analysis (notebook 08) | Wed 18 to Fri 20 | 3 h | `sai/segments` | Ganesh |
+| S9 | Number check and proofreading | Mon 23 and Wed 25 | 2 h | PR comments | Ganesh |
 
 ## What you need to understand first
 
@@ -184,7 +184,7 @@ Read the S and T learner sections of Künzel et al. (2019) before you start. The
 
 **File.** `report/sections/ethics_and_legal.md`.
 
-**Inputs.** `data/README.md` and the sleeping dogs result in `results/sleeping_dogs_5m.csv` (Neeraj delivers it on Mon 16).
+**Inputs.** `data/README.md` and the sleeping dogs result in `results/sleeping_dogs_5m.csv` (Neeraj delivers it on Wed 18).
 
 **Structure.** Four short parts, one sentence each, in this order.
 1. **Privacy.** The data is anonymized and contains no personal information.
@@ -265,7 +265,7 @@ Read the S and T learner sections of Künzel et al. (2019) before you start. The
 
 ## S9. Number check and proofreading
 
-**Task.** On Fri 20 Nov, check every number in your three pieces (Literature review, Ethics and legal, bibliography entries). On Wed 25 Nov, proofread the final PDF.
+**Task.** On Mon 23 Nov, check every number in your three pieces (Literature review, Ethics and legal, bibliography entries). On Wed 25 Nov, proofread the final PDF.
 
 **Steps.** For each number, find its source and write one line in a PR comment: the number, the file, the row and column. On Wed 25, read the full PDF aloud once, and note every typo, unclear sentence and broken link.
 
@@ -279,9 +279,9 @@ Read the S and T learner sections of Künzel et al. (2019) before you start. The
 
 | Review | What to check | When |
 |---|---|---|
-| `metrics.py` in the pipeline PR | The Qini formula, the bootstrap and the test | Sun 15 |
-| Ganesh's Problem and data | Facts match `data/README.md` and the results | Tue 17 |
-| Neeraj's Abstract | Matches the Results section | Sat 21 |
+| `metrics.py` in the pipeline PR | The Qini formula, the bootstrap and the test | Mon 16 |
+| Ganesh's Problem and data | Facts match `data/README.md` and the results | Sat 21 |
+| Neeraj's Abstract | Matches the Results section | Mon 23 |
 
 A review needs at least three specific comments, or an explicit statement of what you checked and found correct.
 

@@ -13,13 +13,13 @@ Read `docs/PLAN.md` first. Every task below has the same parts:
 | ID | Task | Due | Time | Branch | Reviewer |
 |---|---|---|---|---|---|
 | N1 | Set up and first run | Sat 14 | 1 to 2 h | none | Neeraj |
-| N2 | Review the X learner and the evaluation code | Sun 15 | 2 h | PR comments | Sai |
-| N3 | Tests for the X learner | Sun 15 | 2 h | `niranjan/test_xlearner` | Neeraj |
-| N4 | Report template | Mon 16 | 4 h | `niranjan/report_template` | Neeraj |
-| N5 | Calibration analysis (notebook 09) | Tue 17 | 3 h | `niranjan/calibration` | Neeraj |
-| N6 | Draft Conclusion and future work | Wed 18 | 1.5 h | `niranjan/conclusion` | Neeraj |
-| N7 | Merge the drafts and check numbers | Thu 19 and Fri 20 | 2 h | `niranjan/merge_drafts` | Neeraj |
-| N8 | Assemble the two column PDF | Sat 21 to Mon 23 | 5 h | `niranjan/final_pdf` | Sai |
+| N2 | Review the X learner and the evaluation code | Mon 16 | 2 h | PR comments | Sai |
+| N3 | Tests for the X learner | Tue 17 | 2 h | `niranjan/test_xlearner` | Neeraj |
+| N4 | Report template | Wed 18 to Fri 20 | 4 h | `niranjan/report_template` | Neeraj |
+| N5 | Calibration analysis (notebook 09) | Wed 18 to Thu 19 | 3 h | `niranjan/calibration` | Neeraj |
+| N6 | Draft Conclusion and future work | Sat 21 | 1.5 h | `niranjan/conclusion` | Neeraj |
+| N7 | Merge the drafts and check numbers | Sat 21 and Sun 22 | 2 h | `niranjan/merge_drafts` | Neeraj |
+| N8 | Assemble the two column PDF | Sun 22 to Tue 24 | 5 h | `niranjan/final_pdf` | Sai |
 | N9 | Final PDF checks | Wed 25 | 2 h | PR comments | Ganesh |
 
 ## What you need to understand first
@@ -213,9 +213,9 @@ Read the X learner section of Künzel et al. (2019) before you start. The link i
 **Task.** Put the eight drafts together and check them.
 
 **Steps.**
-1. Thu 19: copy each file in `report/sections/` into the template. Run `python report/count_words.py` (Ganesh builds it).
+1. Sat 21 and Sun 22: as each section is ready, copy it from `report/sections/` into the template. Run `python report/count_words.py` (Ganesh builds it).
 2. If any section is over budget or the total is over 1,000, post the list in the group chat and ask the authors to cut. Do not cut other people's text yourself.
-3. Fri 20: check every number in your Conclusion and in the calibration results against its file.
+3. Sun 22: check every number in your Conclusion and in the calibration results against its file.
 
 **Acceptance criteria.**
 - [ ] All eight sections are in the template
@@ -228,7 +228,7 @@ Read the X learner section of Künzel et al. (2019) before you start. The link i
 
 ## N8. Assemble the two column PDF
 
-**Task.** Produce the final PDF from the template and the sections, Sat 21 to Mon 23.
+**Task.** Produce the final PDF from the template and the sections, Sun 22 to Tue 24.
 
 **Steps.**
 1. Place all final sections and the four figures. Write a caption for each figure that says what it shows and how to read it.
@@ -272,9 +272,9 @@ Read the X learner section of Künzel et al. (2019) before you start. The link i
 
 | Review | What to check | When |
 |---|---|---|
-| Ganesh's word count script | The counting rules in task G9 | Mon 16 |
-| Sai's Literature review and bibliography | Citations match, claims match the papers | Tue 17 |
-| Ganesh's Results section | Every number matches its file | Thu 19 |
+| Ganesh's word count script | The counting rules in task G9 | Thu 19 |
+| Sai's Literature review and bibliography | Citations match, claims match the papers | Sun 22 |
+| Ganesh's Results section | Every number matches its file | Sun 22 |
 
 A review needs at least three specific comments, or an explicit statement of what you checked and found correct.
 
