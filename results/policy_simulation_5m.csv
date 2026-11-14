@@ -1,0 +1,31 @@
+outcome,budget,policy,extra_per_100k,ci_lo,ci_hi,gain_vs_response,gain_lo,gain_hi
+visit,10%,Response baseline,5167.11,4622.79,5793.49,,,
+visit,10%,S-learner,6069.99,5610.66,6614.41,902.88,500.06,1349.68
+visit,10%,T-learner,5861.97,5265.8,6390.12,694.86,283.35,1033.27
+visit,10%,X-learner,6300.33,5726.91,6803.58,1133.22,728.27,1441.67
+visit,10%,Random,995.17,,,,,
+visit,20%,Response baseline,3678.47,3414.95,4062.46,,,
+visit,20%,S-learner,3723.83,3484.12,4045.31,45.37,-70.15,169.77
+visit,20%,T-learner,3860.03,3590.94,4173.33,181.57,-15.77,399.68
+visit,20%,X-learner,3816.43,3566.8,4165.78,137.96,-70.32,318.01
+visit,20%,Random,995.17,,,,,
+visit,30%,Response baseline,2778.26,2588.37,3030.32,,,
+visit,30%,S-learner,2753.88,2565.29,2983.84,-24.38,-75.97,28.97
+visit,30%,T-learner,2823.58,2636.48,3047.98,45.32,-81.6,145.23
+visit,30%,X-learner,2869.26,2690.74,3110.02,91.0,-23.19,192.43
+visit,30%,Random,995.17,,,,,
+conversion,10%,Response baseline,853.2,705.24,1033.89,,,
+conversion,10%,S-learner,843.55,695.22,1025.82,-9.65,-41.27,27.54
+conversion,10%,T-learner,768.95,619.72,911.32,-84.25,-167.88,4.14
+conversion,10%,X-learner,833.08,662.75,1003.51,-20.13,-72.19,47.92
+conversion,10%,Random,117.39,,,,,
+conversion,20%,Response baseline,513.38,438.66,595.4,,,
+conversion,20%,S-learner,512.75,436.32,603.32,-0.63,-12.97,15.89
+conversion,20%,T-learner,452.9,377.83,520.59,-60.49,-100.2,-17.4
+conversion,20%,X-learner,485.22,414.96,571.52,-28.16,-58.2,4.55
+conversion,20%,Random,117.39,,,,,
+conversion,30%,Response baseline,368.68,324.96,424.42,,,
+conversion,30%,S-learner,362.45,316.9,420.23,-6.23,-15.24,3.97
+conversion,30%,T-learner,322.39,270.11,367.87,-46.29,-75.96,-19.27
+conversion,30%,X-learner,343.29,294.42,402.44,-25.39,-40.86,-6.28
+conversion,30%,Random,117.39,,,,,

@@ -1,0 +1,14 @@
+{
+ "visit": {
+  "num_leaves": 15,
+  "learning_rate": 0.05,
+  "n_estimators": 200,
+  "min_child_samples": 200
+ },
+ "conversion": {
+  "num_leaves": 15,
+  "learning_rate": 0.05,
+  "n_estimators": 200,
+  "min_child_samples": 200
+ }
+}

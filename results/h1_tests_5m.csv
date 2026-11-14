@@ -1,0 +1,7 @@
+outcome,model,diff_vs_response,ci_lo,ci_hi,p_one_sided,p_bonferroni
+visit,S-learner,0.000157,8.7e-05,0.000232,0.004975,0.014925
+visit,T-learner,0.000177,-9.1e-05,0.000457,0.109453,0.328358
+visit,X-learner,0.000285,1.6e-05,0.000526,0.024876,0.074627
+conversion,S-learner,-9e-06,-2.5e-05,1.5e-05,0.800995,1.0
+conversion,T-learner,-0.000132,-0.000212,-5.5e-05,1.0,1.0
+conversion,X-learner,-4.3e-05,-8.6e-05,9e-06,0.940299,1.0

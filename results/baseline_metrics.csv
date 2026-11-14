@@ -1,0 +1,5 @@
+outcome,model,auc,precision_top20,recall_top20
+visit,Logistic regression,0.9312,0.2137,0.9092
+visit,LightGBM,0.9466,0.2174,0.925
+conversion,Logistic regression,0.9508,0.0139,0.9423
+conversion,LightGBM,0.9571,0.014,0.9494

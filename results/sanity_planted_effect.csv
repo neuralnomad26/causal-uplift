@@ -1,0 +1,5 @@
+,qini_coef
+oracle (true effect),0.006317
+T-learner,0.005956
+random,-0.000133
+reversed oracle,-0.006017
