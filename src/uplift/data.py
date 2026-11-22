@@ -14,11 +14,17 @@ OUTCOMES = ["visit", "conversion"]  # develop on visit
 
 
 def download(dest: Path) -> Path:
-    """Download the mirror file into dest and return it."""
+    """Download the mirror file into dest and return it.
+
+    The file is written to a temporary name first and renamed at the end, so an
+    interrupted download never leaves a half file that looks complete.
+    """
     dest = Path(dest)
     dest.parent.mkdir(parents=True, exist_ok=True)
     if not dest.exists():
-        urllib.request.urlretrieve(MIRROR_URL, dest)
+        part = dest.with_name(dest.name + ".part")
+        urllib.request.urlretrieve(MIRROR_URL, part)
+        part.replace(dest)
     return dest
 
 
@@ -115,3 +121,37 @@ def take(df: pd.DataFrame, ids: np.ndarray) -> pd.DataFrame:
 def treated_share_ok(df: pd.DataFrame, expected: float = 0.85, tol: float = 0.01) -> bool:
     """The file is ordered, so always check a sample is not all treated."""
     return abs(df[TREATMENT].mean() - expected) <= tol
+
+
+# The repo root is two folders above this file, so this only points at the repo's data
+# folder when the package is installed with `pip install -e .` (an editable install).
+DATA_DIR = Path(__file__).resolve().parents[2] / "data"
+CSV_NAME = "criteo-research-uplift-v2.1.csv.gz"
+PARQUET_NAME = "criteo.parquet"
+
+
+def prepare(data_dir: Path = DATA_DIR) -> Path:
+    """Download, check and convert the data. Safe to run again, finished steps are skipped.
+
+    Returns the path of the parquet file that the notebooks read.
+    """
+    data_dir = Path(data_dir)
+    csv_gz = download(data_dir / CSV_NAME)
+    if not verify_checksum(csv_gz):
+        raise RuntimeError(
+            f"Checksum mismatch for {csv_gz}. Delete the file and run the command again."
+        )
+    return to_parquet(csv_gz, data_dir / PARQUET_NAME)
+
+
+def main() -> None:
+    """Run with: python -m uplift.data"""
+    parquet = prepare()
+    df = pd.read_parquet(parquet, columns=[TREATMENT])
+    print(f"Ready: {parquet}")
+    print(f"Rows: {len(df):,}  Treated share: {df[TREATMENT].mean():.4f}")
+    print("The file is ordered. Never take the first rows, always sample with a seed.")
+
+
+if __name__ == "__main__":
+    main()
