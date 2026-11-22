@@ -122,6 +122,9 @@ def treated_share_ok(df: pd.DataFrame, expected: float = 0.85, tol: float = 0.01
     """The file is ordered, so always check a sample is not all treated."""
     return abs(df[TREATMENT].mean() - expected) <= tol
 
+
+# The repo root is two folders above this file, so this only points at the repo's data
+# folder when the package is installed with `pip install -e .` (an editable install).
 DATA_DIR = Path(__file__).resolve().parents[2] / "data"
 CSV_NAME = "criteo-research-uplift-v2.1.csv.gz"
 PARQUET_NAME = "criteo.parquet"
