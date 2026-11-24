@@ -15,7 +15,7 @@ H1 is partly supported. Uplift models help on visits when the budget is small, a
 - **Visits, top 10 percent of users.** Targeting with the X-learner gives about 6,300 extra visits per 100,000 users contacted. The response baseline gives about 5,170, and random targeting about 1,000. The X-learner gain over the baseline is about 1,130 extra visits per 100,000 (95 percent interval 728 to 1,442).
 - **Visits, 20 and 30 percent budgets.** The gains shrink and their intervals include zero. At these budgets we cannot tell the models apart.
 - **Conversion.** No uplift model beats the baseline. The T-learner is clearly worse. Conversion is rare, so these estimates are noisy.
-- **Statistical test.** After correcting for three comparisons, only the S-learner is significantly better than the baseline on visits. The X-learner is close but not there.
+- **Statistical test.** After correcting for three comparisons, the S-learner is significantly better than the baseline on visits, and this holds under every bootstrap seed we tried. The X-learner is borderline: its corrected p value is 0.075 with the seed used for the tables and 0.045 with another, and it is below 0.05 in 10 of 12 further seeds. The T-learner is never significant.
 - **Why the gains are modest.** The users most likely to visit are also the users the offer moves most, so response targeting is already a strong baseline. The X-learner finds a top tenth where the offer adds 6.3 percentage points, about 63 percent of the average effect on the Qini curve. The next tenth adds 0.5 points, and from the fourth tenth down the effect is 0.12 points or less.
 - **One caution on randomization.** The data description says assignment was random, but a model can predict who was treated slightly better than chance (AUC 0.51). If that reflects real dependence on the features, absolute numbers such as the extra visits above may be overstated by roughly a quarter to a third. The comparisons between models mostly hold. See the last point under "What these results do not show" and notebook 11.
 
@@ -62,7 +62,8 @@ On visits the S-learner is a little ahead of the baseline at every size, with in
 
 - **Planted effect.** On synthetic data with a known effect, the T-learner scores 0.0060 against 0.0063 for the oracle that knows the truth. A random score gives about 0, and a reversed oracle gives -0.0060.
 - **Randomization.** Treated and control users are balanced on all 10 features by the usual rule, with a largest standardized mean difference of 0.054, below 0.1. The balance is not perfect, though. A model can predict who was treated with an AUC of 0.51, and the treated share is 86.0 percent in the top tenth by response score against 84.9 percent in the rest (notebook 11).
-- **Seeds.** The response baseline is stable across three seeds (0.00340 to 0.00341). The T-learner is not (0.0032 to 0.0036), so its edge over the baseline is within seed noise.
+- **Seeds.** The response baseline is stable across three seeds (0.00340 to 0.00341). The T-learner is not (0.0032 to 0.0036), so its edge over the baseline is within seed noise. The seed runs use 1M training rows and cover only the baseline and the T-learner.
+- **Audit.** Nine checks on the results (no leakage, treated share, curve ends, intervals, oracle bound, bootstrap stability, seed spread, reproducible scores, holdout ids). Seven pass. Two fail and are explained: the X-learner verdict depends on the bootstrap seed, and the T-learner gain is smaller than its seed spread. `results/audit.md` lists the claims we therefore do not make (notebook 12).
 - **Repeated rows.** About 11.8 percent of rows are exact copies of an earlier row, and 12.7 percent of holdout rows have an identical twin in the training rows. We kept them. Scoring only the holdout rows with no twin leaves the model ranking unchanged and the gaps at least as large (notebook 10).
 
 ## What these results do not show
@@ -104,7 +105,7 @@ jupyter lab
 
 `python -m uplift.data` downloads the data (311 MB), checks its SHA256 checksum and converts it to `data/criteo.parquet`. Finished steps are skipped, so it is safe to run again.
 
-Run the notebooks in order, from 01 to 05, then 10 and 11. Start Jupyter from the activated environment. Otherwise Jupyter can pick another Python on your machine and fail with `No module named 'uplift'`. Conda also works: `conda env create -f environment.yml`, then `pip install -e .`. On a Mac, LightGBM needs libomp: `brew install libomp`.
+Run the notebooks in order, from 01 to 05, then 10, 11 and 12. Start Jupyter from the activated environment. Otherwise Jupyter can pick another Python on your machine and fail with `No module named 'uplift'`. Conda also works: `conda env create -f environment.yml`, then `pip install -e .`. On a Mac, LightGBM needs libomp: `brew install libomp`.
 
 The reported numbers come from Python 3.12 with the pinned versions. Other Python versions can change the fourth decimal of some metrics. One teammate saw 0.9504 instead of 0.9508 for a baseline AUC on Python 3.14.
 
@@ -121,6 +122,7 @@ Notebook 03 writes the scores files `results/scores_<size>.parquet`. Evaluation 
 | Policy simulation | 05 | `policy_simulation_5m.csv`, `policy_simulation.png` |
 | Repeated rows check | 10 | `duplicate_rows_summary.csv`, `duplicate_rows_check.csv` |
 | Treatment assignment check | 11 | `propensity_summary.csv`, `propensity_weighted_qini.csv`, `treated_share_by_score_decile.csv` |
+| Audit of the results | 12 | `audit.md` |
 
 ## Repo layout
 
@@ -130,7 +132,7 @@ causal-uplift/
   requirements.txt     pinned versions
   environment.yml      conda wrapper around requirements.txt
   data/                README only, data files are ignored by git
-  notebooks/           01 to 05, 10 and 11, each runs top to bottom
+  notebooks/           01 to 05, 10, 11 and 12, each runs top to bottom
   src/uplift/
     data.py            download, verify, convert, fixed holdout split
     learners.py        S, T and X learners with one interface
