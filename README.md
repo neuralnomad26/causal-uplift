@@ -31,6 +31,15 @@ python3.12 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 pip install -e .
+`
+
+Windows (PowerShell):
+
+`
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+pip install -e .
 ```
 
 The second install makes `import uplift` work inside the notebooks. Conda also works: `conda env create -f environment.yml`, then `pip install -e .`.
@@ -55,6 +64,7 @@ causal-uplift/
     data.py            download, verify, sample, split
     learners.py        S, T and X learners with one interface
     metrics.py         Qini, AUUC, bootstrap
+    pipeline.py        end-to-end experiment runner
   results/             scores.parquet, tables and figures
   report/              figures used in the PDF
   docs/decision_log.md one line per decision, and why
