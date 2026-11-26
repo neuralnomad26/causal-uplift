@@ -1,0 +1,21 @@
+outcome,model,group,share_of_users,n,uplift,ci_lo,ci_hi
+visit,S-learner,predicted negative,0.003162,6325,0.001565,-0.017745,0.020874
+visit,S-learner,rest,0.996838,1993675,0.009986,0.009226,0.010746
+visit,S-learner,bottom 10 percent,0.1,200000,1.1e-05,-0.000696,0.000718
+visit,T-learner,predicted negative,0.077772,155545,0.001821,-0.00213,0.005771
+visit,T-learner,rest,0.922228,1844455,0.010707,0.009956,0.011457
+visit,T-learner,bottom 10 percent,0.1,200000,0.001261,-0.001855,0.004377
+visit,X-learner,predicted negative,0.016309,32618,0.002498,-0.011331,0.016326
+visit,X-learner,rest,0.983691,1967382,0.010236,0.009513,0.01096
+visit,X-learner,bottom 10 percent,0.1,200000,-0.00013,-0.002852,0.002591
+visit,Response baseline,bottom 10 percent,0.1,200000,8.5e-05,-0.00014,0.00031
+conversion,S-learner,predicted negative,0.003502,7003,0.003517,-0.001459,0.008494
+conversion,S-learner,rest,0.996498,1992997,0.001166,0.000988,0.001345
+conversion,S-learner,bottom 10 percent,0.1,200000,8.5e-05,-0.00013,0.000301
+conversion,T-learner,predicted negative,0.047031,94062,0.002991,0.001228,0.004754
+conversion,T-learner,rest,0.952969,1905938,0.001081,0.000915,0.001248
+conversion,T-learner,bottom 10 percent,0.1,200000,0.001468,0.00063,0.002305
+conversion,X-learner,predicted negative,0.011304,22608,0.003289,-0.001402,0.007981
+conversion,X-learner,rest,0.988696,1977392,0.001147,0.000974,0.00132
+conversion,X-learner,bottom 10 percent,0.1,200000,0.000459,-7.7e-05,0.000996
+conversion,Response baseline,bottom 10 percent,0.1,200000,-1.3e-05,-0.000111,8.5e-05
