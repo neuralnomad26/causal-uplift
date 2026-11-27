@@ -118,7 +118,7 @@ jupyter lab
 
 `python -m uplift.data` downloads the data (311 MB), checks its SHA256 checksum and converts it to `data/criteo.parquet`. Finished steps are skipped, so it is safe to run again.
 
-Run the notebooks in order, from 01 to 06 and then 08 to 12. Start Jupyter from the activated environment. Otherwise Jupyter can pick another Python on your machine and fail with `No module named 'uplift'`. Conda also works: `conda env create -f environment.yml`, then `pip install -e .`. On a Mac, LightGBM needs libomp: `brew install libomp`.
+Run the notebooks in order, from 01 to 12. Start Jupyter from the activated environment. Otherwise Jupyter can pick another Python on your machine and fail with `No module named 'uplift'`. Conda also works: `conda env create -f environment.yml`, then `pip install -e .`. On a Mac, LightGBM needs libomp: `brew install libomp`.
 
 The reported numbers come from Python 3.12 with the pinned versions. Other Python versions can change the fourth decimal of some metrics. One teammate saw 0.9504 instead of 0.9508 for a baseline AUC on Python 3.14.
 
@@ -134,6 +134,7 @@ Notebook 03 writes the scores files `results/scores_<size>.parquet`. Evaluation 
 | Qini, tests, size curve, seeds, sanity check, relative uplift | 04 | `qini_results_visit_5m.csv`, `qini_results_conversion_5m.csv`, `h1_tests_5m.csv`, `size_curve.csv`, `seed_stability_visit.csv`, `sanity_planted_effect.csv`, `uplift_by_decile_5m.csv`, `relative_uplift_bootstrap.csv`, `relative_uplift_rank_correlation.csv`, `relative_uplift_response_deciles.csv`, and the figures `qini_curves.png`, `size_curve.png`, `uplift_by_decile.png`, `relative_uplift.png` |
 | Policy simulation, sleeping dogs check | 05 | `policy_simulation_5m.csv`, `policy_simulation.png`, `sleeping_dogs_5m.csv` |
 | Tuning sensitivity | 06 | `sensitivity_tuning_visit.csv` |
+| Baseline variants | 07 | `baseline_variants_visit.csv` |
 | Segments | 08 | `segment_uplift_visit.csv`, `segment_uplift_visit.png` |
 | Calibration | 09 | `calibration_5m.csv`, `calibration_slopes_5m.csv`, `calibration_5m.png` |
 | Repeated rows check | 10 | `duplicate_rows_summary.csv`, `duplicate_rows_check.csv` |
@@ -148,7 +149,7 @@ causal-uplift/
   requirements.txt     pinned versions
   environment.yml      conda wrapper around requirements.txt
   data/                README only, data files are ignored by git
-  notebooks/           01 to 06 and 08 to 12, each runs top to bottom
+  notebooks/           01 to 12, each runs top to bottom
   src/uplift/
     data.py            download, verify, convert, fixed holdout split
     learners.py        S, T and X learners with one interface
