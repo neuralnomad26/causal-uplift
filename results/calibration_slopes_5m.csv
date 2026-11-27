@@ -1,0 +1,7 @@
+outcome,model,slope,spearman
+visit,s,1.085917,-0.830303
+visit,t,0.877994,-0.648485
+visit,x,1.015635,-0.806061
+conversion,s,0.954978,-0.636364
+conversion,t,0.588017,-0.2
+conversion,x,0.936876,-0.430303
