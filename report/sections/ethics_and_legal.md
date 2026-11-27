@@ -1,4 +1,4 @@
-**Privacy:** Criteo's anonymised data still needs careful handling.
+**Privacy:** Criteo's anonymized data still needs careful handling.
 
 **Licence:** We use it for coursework under CC BY-NC-SA 4.0 and credit Criteo.
 
