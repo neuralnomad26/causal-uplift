@@ -1,4 +1,6 @@
-# Who Actually Benefits?
+<p align="center">
+  <img src="docs/assets/banner.svg" alt="Who Actually Benefits? Animated Qini curves for the response baseline and the X-learner, against random targeting, on the 2,000,000 user holdout." width="100%">
+</p>
 
 Causal machine learning for targeted intervention, on the Criteo Uplift dataset. CSC1181, Group 12.
 
@@ -8,9 +10,20 @@ A normal prediction model finds who is likely to respond. It cannot tell us whos
 
 **Our own question.** How much data does uplift targeting need before it beats response targeting? We rerun every model on 100k, 500k, 1M and 5M training rows.
 
+## At a glance
+
+| Topic | Summary |
+|---|---|
+| **Data** | 13,979,592 users from the Criteo Uplift v2.1 experiment, 12 features (10 kept), two outcomes: visits and conversions |
+| **Evaluation** | a fixed holdout of 2,000,000 users, with models trained on up to 5,000,000 other rows |
+| **Models** | the response baseline and the S-, T- and X-learners, all LightGBM |
+| **Verdict** | H1 is partly supported (details below) |
+| **Report** | the final 4 page report: [report/template/main.pdf](report/template/main.pdf) |
+| **Checks** | 43 tests pass, 12 notebooks, and every table and figure has code that regenerates it |
+
 ## The answer in short
 
-H1 is partly supported. Uplift models help on visits when the budget is small, and not when the budget is large or the outcome is conversion.
+H1 is partly supported. On visits only the S-learner beats the response baseline (corrected p 0.015). The X-learner is borderline (corrected p 0.075, or 0.045 with another bootstrap seed) and the T-learner is not significant (0.33). On conversion no learner beats the baseline. At a 10 percent budget the X-learner adds 1,133 visits per 100,000 contacted over the baseline (paired interval 728 to 1,442, uncorrected), and at 20 and 30 percent the intervals include zero. This is the wording in the 27 Nov 2026 row of [docs/decision_log.md](docs/decision_log.md). The points below give the detail.
 
 - **Visits, top 10 percent of users.** Targeting with the X-learner gives about 6,300 extra visits per 100,000 users contacted. The response baseline gives about 5,170, and random targeting about 1,000. The X-learner gain over the baseline is about 1,130 extra visits per 100,000 (95 percent interval 728 to 1,442).
 - **Visits, 20 and 30 percent budgets.** The gains shrink and their intervals include zero. At these budgets we cannot tell the models apart.
@@ -157,8 +170,9 @@ causal-uplift/
     metrics.py         Qini, AUUC, bootstrap, uplift by decile
   tests/               unit tests with a planted effect, run with pytest
   results/             tables, figures and scores files
-  report/              figures, report sections, references and the word count script
-  docs/decision_log.md one line per decision, and why
+  report/              figures, section texts, references and the word count script
+    template/          the report template, the section files and the final PDF (main.pdf)
+  docs/                decision log (one line per decision, and why) and the banner image
 ```
 
 ## How we worked
@@ -168,6 +182,10 @@ causal-uplift/
 - Test rows are never used to fit, tune or select anything.
 - Every figure and number has code that regenerates it.
 - The raw data is never committed.
+
+## Team
+
+Group 12: Neeraj, Ganesh, Sai and Niranjan. Who did what is in the Contribution and Roles table of the final report.
 
 ## Data and licence
 
