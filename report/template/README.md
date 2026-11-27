@@ -33,8 +33,8 @@ Any other LaTeX works too (`pdflatex main.tex` from this folder). On Overleaf, u
 
 ## Pasting a section in
 
-1. Copy the paragraphs from `report/sections/<name>.md` into `sections/<name>.tex`.
-2. Escape `%`, `&`, `_` and `#` as `\%`, `\&`, `\_`, `\#`.
-3. Delete the HTML comments (`<!-- ... -->`). Do not turn them into `%` comments: a `%` hides the rest of a one line paragraph. The sources stay in `report/sections/`.
+1. Copy the paragraphs from `report/sections/<name>.md` into `sections/<name>.tex`. One name differs: `report/sections/analysis.md` goes into `sections/analysis_and_discussion.tex`.
+2. Escape `%`, `&`, `_` and `#` as `\%`, `\&`, `\_`, `\#`. Turn each `**Label.**` run-in heading (Methods and Ethics and legal) into `\textbf{Label.}`, or it prints as asterisks. Write a negative number as `$-0.000091$` so the minus sign cannot be left at the end of a line.
+3. Delete the HTML comments (`<!-- ... -->`). Do not turn them into `%` comments: a `%` hides the rest of a one line paragraph. The sources stay in `report/sections/`. Then close up the spaces the deletion leaves: no double spaces and no space before a comma, full stop, semicolon or bracket.
 4. Cite as `[1]` in the Markdown becomes `\cite{ascarza2018}`, or keep the plain `[1]` text. Both print as [1].
 5. Refer to figures as `Figure~\ref{fig:qini}`, `\ref{fig:decile}`, `\ref{fig:size}`, `\ref{fig:policy}`.
