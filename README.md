@@ -56,7 +56,7 @@ The effect is concentrated. In the top tenth of users by X-learner score, treate
 
 ![Qini coefficient by training size](report/size_curve.png)
 
-On visits the S-learner is a little ahead of the baseline at every size, with intervals that overlap. The T-learner is below the baseline until 1M rows. The X-learner is close to the baseline up to 1M rows and ahead at 5M. The baseline stays flat from 100k rows to 5M. All intervals overlap, so these are tendencies, not firm differences.
+On visits the S-learner is a little ahead of the baseline at every size, with intervals that overlap. Each size was run once, so we do not claim the S-learner's lead is stable. The T-learner is below the baseline until 1M rows. The X-learner is close to the baseline up to 1M rows and ahead at 5M. The baseline stays flat from 100k rows to 5M. Most intervals overlap, so these are tendencies, not firm differences. The exception is 100k rows, where the T-learner interval lies entirely below the baseline and the S-learner.
 
 ### Checks that the pipeline is sound
 
@@ -71,7 +71,7 @@ On visits the S-learner is a little ahead of the baseline at every size, with in
 - Visits are a proxy for interest. They say nothing about revenue, cost per contact or fatigue.
 - This is one dataset from one advertiser, and the 12 features are anonymized, so we cannot say which user traits drive the effect.
 - Bootstrap intervals resample the holdout rows. They do not capture how much a model changes when it is retrained, which we checked with three seeds for the baseline and the T-learner only.
-- Conversion is rare. The holdout has about 580 control conversions, so conversion results are weak evidence either way.
+- Conversion is rare. The holdout has about 590 control conversions, so conversion results are weak evidence either way.
 - The file has no user id, so repeated rows cannot be told apart from different users with the same features.
 - The Qini and policy numbers describe this holdout. We have no second dataset to confirm them.
 - Treatment assignment was not perfectly independent of the features (see the randomization check above). We report the unweighted results, because the data description says assignment was random. With propensity weights the average visit effect falls from 0.0100 to between 0.0067 and 0.0075. All three uplift models still beat the baseline and the X-learner is still best, but the T-learner drops below the S-learner and its gap to the baseline shrinks from 0.00018 to 0.00006. Absolute numbers such as extra visits per 100,000 may therefore be overstated by roughly a quarter to a third. We did not rerun the bootstrap intervals or the policy simulation with weights (notebook 11).
@@ -107,6 +107,7 @@ On Windows (PowerShell):
 
 ```powershell
 py -3.12 -m venv .venv
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 .venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 pip install -e .
@@ -117,7 +118,7 @@ jupyter lab
 
 `python -m uplift.data` downloads the data (311 MB), checks its SHA256 checksum and converts it to `data/criteo.parquet`. Finished steps are skipped, so it is safe to run again.
 
-Run the notebooks in order, from 01 to 05, then 10, 11 and 12. Start Jupyter from the activated environment. Otherwise Jupyter can pick another Python on your machine and fail with `No module named 'uplift'`. Conda also works: `conda env create -f environment.yml`, then `pip install -e .`. On a Mac, LightGBM needs libomp: `brew install libomp`.
+Run the notebooks in order, from 01 to 12. Start Jupyter from the activated environment. Otherwise Jupyter can pick another Python on your machine and fail with `No module named 'uplift'`. Conda also works: `conda env create -f environment.yml`, then `pip install -e .`. On a Mac, LightGBM needs libomp: `brew install libomp`.
 
 The reported numbers come from Python 3.12 with the pinned versions. Other Python versions can change the fourth decimal of some metrics. One teammate saw 0.9504 instead of 0.9508 for a baseline AUC on Python 3.14.
 
@@ -130,8 +131,12 @@ Notebook 03 writes the scores files `results/scores_<size>.parquet`. Evaluation 
 | Balance and average effect | 01 | `balance_table_1m.csv`, `balance_smd_1m.png`, `ate_visit_conversion.csv` |
 | Features, tuning, baseline | 02 | `feature_selection.csv`, `kept_features.json`, `best_params.json`, `tuning_visit.csv`, `tuning_conversion.csv`, `baseline_metrics.csv` |
 | Scores for all models | 03 | `scores_100k.parquet` to `scores_5m.parquet` (not committed) |
-| Qini, tests, size curve, seeds, sanity check | 04 | `qini_results_visit_5m.csv`, `qini_results_conversion_5m.csv`, `h1_tests_5m.csv`, `size_curve.csv`, `seed_stability_visit.csv`, `sanity_planted_effect.csv`, `uplift_by_decile_5m.csv`, and the figures `qini_curves.png`, `size_curve.png`, `uplift_by_decile.png` |
-| Policy simulation | 05 | `policy_simulation_5m.csv`, `policy_simulation.png` |
+| Qini, tests, size curve, seeds, sanity check, relative uplift | 04 | `qini_results_visit_5m.csv`, `qini_results_conversion_5m.csv`, `h1_tests_5m.csv`, `size_curve.csv`, `seed_stability_visit.csv`, `sanity_planted_effect.csv`, `uplift_by_decile_5m.csv`, `relative_uplift_bootstrap.csv`, `relative_uplift_rank_correlation.csv`, `relative_uplift_response_deciles.csv`, and the figures `qini_curves.png`, `size_curve.png`, `uplift_by_decile.png`, `relative_uplift.png` |
+| Policy simulation, sleeping dogs check | 05 | `policy_simulation_5m.csv`, `policy_simulation.png`, `sleeping_dogs_5m.csv` |
+| Tuning sensitivity | 06 | `sensitivity_tuning_visit.csv` |
+| Baseline variants | 07 | `baseline_variants_visit.csv` |
+| Segments | 08 | `segment_uplift_visit.csv`, `segment_uplift_visit.png` |
+| Calibration | 09 | `calibration_5m.csv`, `calibration_slopes_5m.csv`, `calibration_5m.png` |
 | Repeated rows check | 10 | `duplicate_rows_summary.csv`, `duplicate_rows_check.csv` |
 | Treatment assignment check | 11 | `propensity_summary.csv`, `propensity_weighted_qini.csv`, `treated_share_by_score_decile.csv` |
 | Audit of the results | 12 | `audit.md` |
@@ -144,7 +149,7 @@ causal-uplift/
   requirements.txt     pinned versions
   environment.yml      conda wrapper around requirements.txt
   data/                README only, data files are ignored by git
-  notebooks/           01 to 05, 10, 11 and 12, each runs top to bottom
+  notebooks/           01 to 12, each runs top to bottom
   src/uplift/
     data.py            download, verify, convert, fixed holdout split
     learners.py        S, T and X learners with one interface
@@ -152,7 +157,7 @@ causal-uplift/
     metrics.py         Qini, AUUC, bootstrap, uplift by decile
   tests/               unit tests with a planted effect, run with pytest
   results/             tables, figures and scores files
-  report/              figures used in the report
+  report/              figures, report sections, references and the word count script
   docs/decision_log.md one line per decision, and why
 ```
 
