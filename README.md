@@ -103,6 +103,18 @@ pytest
 jupyter lab
 ```
 
+On Windows (PowerShell):
+
+```powershell
+py -3.12 -m venv .venv
+.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+pip install -e .
+python -m uplift.data
+pytest
+jupyter lab
+```
+
 `python -m uplift.data` downloads the data (311 MB), checks its SHA256 checksum and converts it to `data/criteo.parquet`. Finished steps are skipped, so it is safe to run again.
 
 Run the notebooks in order, from 01 to 05, then 10, 11 and 12. Start Jupyter from the activated environment. Otherwise Jupyter can pick another Python on your machine and fail with `No module named 'uplift'`. Conda also works: `conda env create -f environment.yml`, then `pip install -e .`. On a Mac, LightGBM needs libomp: `brew install libomp`.
