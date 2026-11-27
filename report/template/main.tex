@@ -33,6 +33,8 @@
 
 % Where the section text comes from. dummy_test.tex sets this to "dummy".
 \providecommand{\slotdir}{sections}
+\raggedbottom
+\renewcommand\refname{Bibliography}
 
 \newcommand{\codelink}{https://github.com/neuralnomad26/causal-uplift}
 
@@ -46,11 +48,13 @@
     \vspace{0.3em}
     Code: \url{\codelink}\par
   \end{center}
-  \vspace{0.8em}
+  \vspace{0.4em}
+  \input{\slotdir/roles}
+  \vspace{0.2em}
+  \section{Abstract}
+  \input{\slotdir/abstract}
+  \vspace{0.4em}
 }]
-
-\section{Abstract}
-\input{\slotdir/abstract}
 
 % Figures span both columns. A two column figure can only appear at the top of a page
 % AFTER the one where it is defined, so they are defined early, right after the Abstract.
@@ -106,15 +110,13 @@
 \section{Analysis and discussion}
 \input{\slotdir/analysis_and_discussion}
 
-\section{Ethics and legal}
+\section{Ethical and legal considerations}
 \input{\slotdir/ethics_and_legal}
 
 \section{Conclusion and future work}
 \input{\slotdir/conclusion}
 
-\input{\slotdir/roles}
-
-% thebibliography prints its own "References" heading.
+% thebibliography prints its own heading (renamed to Bibliography above).
 \input{\slotdir/references}
 
 \end{document}
