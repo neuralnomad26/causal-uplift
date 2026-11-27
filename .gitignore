@@ -16,3 +16,5 @@ data/*
 results/*.parquet
 results/*.pkl
 *.egg-info/
+report/template/dummy/
+report/template/dummy_test.pdf
