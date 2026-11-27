@@ -35,6 +35,6 @@ Any other LaTeX works too (`pdflatex main.tex` from this folder). On Overleaf, u
 
 1. Copy the paragraphs from `report/sections/<name>.md` into `sections/<name>.tex`.
 2. Escape `%`, `&`, `_` and `#` as `\%`, `\&`, `\_`, `\#`.
-3. Keep each number's source note as a LaTeX comment, for example `0.0036 % results/qini_results_visit_5m.csv`. Comments do not print.
+3. Delete the HTML comments (`<!-- ... -->`). Do not turn them into `%` comments: a `%` hides the rest of a one line paragraph. The sources stay in `report/sections/`.
 4. Cite as `[1]` in the Markdown becomes `\cite{ascarza2018}`, or keep the plain `[1]` text. Both print as [1].
 5. Refer to figures as `Figure~\ref{fig:qini}`, `\ref{fig:decile}`, `\ref{fig:size}`, `\ref{fig:policy}`.
