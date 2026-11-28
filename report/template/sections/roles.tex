@@ -3,17 +3,20 @@
 % Not a float: it stays exactly here, after the Conclusion.
 \par\medskip
 \noindent
-\begin{minipage}{\columnwidth}
+\begin{minipage}{\textwidth}
   \centering
   \captionof*{table}{\textbf{Contribution and Roles}}
-  \begin{tabularx}{\columnwidth}{@{}l>{\raggedright\arraybackslash}X@{}}
+  \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash\hyphenpenalty=10000\exhyphenpenalty=10000}p{3.4cm}>{\raggedright\arraybackslash}X@{}}
     \toprule
     Name & What they did \\
     \midrule
-    Neeraj   & \\
-    Ganesh   & \\
-    Sai      & \\
-    Niranjan & \\
+    Neeraj Nataraj & Led and coordinated the project. Built the holdout split, learners, Qini evaluation, tests and audit, ran the sleeping dogs and relative uplift analyses, drafted the Abstract, Methods and Analysis, recorded the H1 verdict, and reviewed teammates' pull requests. \\
+    \addlinespace
+    Ganesh Vardhan Dharmarajan & Initiated environment and cold-start setup verification, built the baseline variants benchmark check and automated report word count script/tests, drafted the Problem and data and Results sections, and reviewed the Methods section. \\
+    \addlinespace
+    Kaja Saikiran & Developed pipeline validation tests, conducted tuning sensitivity and segment uplift analyses, contributed to the literature review, bibliography, and ethics and legal section, and reviewed teammates' code, results, and documentation. \\
+    \addlinespace
+    Niranjan Nandakumar & Verified the environment setup, wrote the X-learner tests, built the calibration analysis (notebook 09) and the two column report template, drafted the Conclusion, pasted the section drafts into the template and assembled the final PDF, checked the Analysis and README numbers, and reviewed the Analysis section and the data setup. \\
     \bottomrule
   \end{tabularx}
 \end{minipage}
